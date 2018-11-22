@@ -1,0 +1,66 @@
+{% extends 'app_base.html' %}
+{% load static from staticfiles %}
+{% load crispy_forms_tags %}
+{% block body-block %}
+    <marquee><h3 style='color:white'>Lists of Resturants</h3></marquee>
+    <div class="search-bar">
+            <form>
+            <div class="input-wrapper">
+              <input type="text" class="form-control" placeholder="Search...">
+            </div>
+            <button type="submit" class="btn btn-success">Search</button>
+          </form>
+        </div>
+        
+    {% for pro in products %}
+    <div class="restaurant" >
+       <div class="rest-wrapper">
+           <div class="image">
+               <img src="{{pro.document.url}}" height="100" width="100">
+           </div>
+           <div class="rest-info">
+               <div class="rest-category">
+                  <small>{{pro.description}} </small>
+               </div>
+               <div class="rest-name">
+               <strong>{{pro.name}}</strong>
+               </div>
+               <div>
+                  <strong>{{pro.location}}</strong>
+               </div>
+               <div class="rest-address">
+                   X roads
+               </div>
+           </div>
+       </div>
+       <div class="rest-extra">
+           <div class="type">
+               <div><small>Cuisines:</small></div>
+               <div><small>Cost for Two: </small></div>
+              <span><div><small>Hours:</small></div>
+        <a href="/view/{{pro.id}}"><button class="btn btn-primary">Go</button></a></span>
+           </div>
+           <div class="value">
+               <div>{{pro.cuisines}}</div>
+               <div>₹ {{pro.cost}}</div>
+               <div>12pm to 11pm (mon-sun)</div>
+           </div>
+       </div>
+       <div class="rating">
+           <strong>{{pro.quantity}}</strong>
+       </div>
+   </div>
+
+             
+ {% endfor %}
+      
+      
+     
+
+{% endblock %}
+
+           
+          
+
+
+ 

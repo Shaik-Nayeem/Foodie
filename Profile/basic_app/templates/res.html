@@ -1,0 +1,46 @@
+    {% for pro in products %}
+         <div class="restaurant" >
+            <div class="rest-wrapper">
+                <div class="image">
+                    <img src="{{pro.document.url}}" height="100" width="100">
+                </div>
+                <div class="rest-info">
+                    <div class="rest-category">
+                       <small>{{pro.description}} </small>
+                    </div>
+                    <div class="rest-name">
+                    <strong>{{pro.name}}</strong>
+                    </div>
+                    <div>
+                       <strong>Hyderabad,Hitech City</strong>
+                    </div>
+                    <div class="rest-address">
+                        X roads
+                    </div>
+                </div>
+            </div>
+            <div class="rest-extra">
+                <div class="type">
+                    <div><small>Cuisines:</small></div>
+                    <div><small>Cost for Two: </small></div>
+                    <div><small>Hours:</small></div>
+                </div>
+                <div class="value">
+                    <div>Cuisines</div>
+                    <div>$25.00</div>
+                    <div>12pm to 8pm (mon-sun)</div>
+                </div>
+            </div>
+            <div class="rating">
+                <strong>4.5</strong>
+            </div>
+        </div>
+
+                  
+      {% endfor %}
+           
+           
+          
+
+{% endblock %}
+ 

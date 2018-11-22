@@ -1,0 +1,42 @@
+{% extends 'app_base.html' %}
+{% load static from staticfiles %}
+{% load crispy_forms_tags %}
+
+
+{% block body-block %}
+<div class="container">
+<form class="form-signin" method="POST" enctype="multipart/form-data" action="/hii/{{product.id}}/">
+  {% csrf_token %}
+  <div class="form-group">
+    <label class="sr-only" for="name">Name</label>
+   NAME: <input type="text" class="form-control" placeholder="Paradise" value="{{product.name}}" id="id_username"   name="name">
+  </div>
+  <div class="form-group">
+    <label class="sr-only" for="pwd">Description</label>
+  DES:  <input type="text" class="form-control" id="pwd" value="{{product.description}}"  placeholder="Enter password" name="description">
+  </div>
+  <div class="form-group">
+      <div class="form-group">
+          <label class="sr-only" for="pwd">cuisines</label>
+        cusines: <input type="text" class="form-control" id="location" value="{{product.cusines}}" placeholder="Cuisines" name="cuisines">
+        </div>
+    <label class="sr-only" for="qty">Image</label>
+  Image:  <input type="file" class="form-control" placeholder="5" id="qty"  name="document">
+</div>
+  <div class="form-group">
+      <label class="sr-only" for="pwd">location</label>
+    Location: <input type="text" class="form-control" id="location" value="{{product.location}}" placeholder="Banglore,..." name="location">
+    </div>
+    <div class="form-group">
+      <label class="sr-only" for="pwd">cost</label>
+    cost: <input type="text" class="form-control" id="location" value="" placeholder="" name="cost">
+    </div>
+  <div class="form-group">
+      <label class="sr-only" for="qty">Quantity</label>
+    Ratings:  <input type="text" class="form-control" placeholder="5" id="qty" value="{{product.quantity}}" name="quantity">
+    </div>
+    <button type="submit" id="btn" class="btn btn-default">Submit</button>
+    
+  </form>
+  </div>
+{% endblock %}

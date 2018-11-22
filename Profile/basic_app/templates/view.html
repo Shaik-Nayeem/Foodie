@@ -1,0 +1,42 @@
+{% extends 'app_base.html' %}
+{% load crispy_forms_tags %}
+{% load static from staticfiles %}
+
+{% block body-block %}
+<div class="container">
+
+
+<a href='/update/{{product.id}}' class="btn btn-warning">Edit</a>
+<a href="{% url 'delete' product.id %}" class="btn btn-danger">Delete</a></td>
+
+  </div>
+
+
+  
+      {% for item in product.menu_set.all %}
+      <div class="row">
+        <div class="col-md-3">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{% static "images/resturant.jpg" %}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Name:<b>{{item.name}}</b> </h5>
+              <small>Rs.<b>{{item.price}}</b></small>
+              <p class="card-text">Mouth watering Food!</p>
+              <a href="#" class="btn btn-primary">Go</a>
+            </div>
+          </div>
+        </br>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+</div>
+
+
+
+  
+
+  
+{% endblock %}
