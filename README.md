@@ -1,6 +1,8 @@
 # Foodie App(resturant)
-Django-App with RBAC control.Admin can we view/Edit/Delete the resturants(menu).
-Django-Allauth for thirdparty Integrations(Google,Fb,Git)
-Customized Login,
+<b>Django</b>-App with RBAC control.Admin can we <b>view/Edit/Delete</b> the resturants(menu).</br>
+Django-Allauth for thirdparty Integrations(Google,Fb,Git)</br>
+Customized Login,</br>
 Integrated with AJAX.
+
+
 
