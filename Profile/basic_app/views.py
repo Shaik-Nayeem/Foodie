@@ -11,6 +11,8 @@ from django.contrib.auth.decorators import login_required,permission_required
 
 
 
+def home1(request,*args,**kwargs):
+    return render(request,'auth/auth_social.html')
 
 @login_required
 def home(request):
@@ -48,8 +50,8 @@ def hii(request,pk):
 
           return redirect('show')
 
-    #return render(request,'product_view.html',{'form':form})
-    return HttpResponse(form)
+    return render(request,'show.html',{'form':form})
+    #return HttpResponse(form)
 
 
 def validate_usernam(request):

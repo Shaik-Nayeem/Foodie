@@ -1,0 +1,10 @@
+{% extends 'app_base.html' %}
+{% load static from staticfiles %}
+
+{% load crispy_forms_tags %}
+
+
+{% block body-block %}
+<a href="{%  url 'social:begin' 'github' %}" class='btn btn-social-icon btn-github'><i class='fa fa-github'></i></a>
+
+{% endblock %}

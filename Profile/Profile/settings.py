@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'django.contrib.sites',
+    'social_django',
     
 
      
@@ -59,6 +60,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+     'social_django.middleware.SocialAuthExceptionMiddleware',  # <--
+
 ]
 
 ROOT_URLCONF = 'Profile.urls'
@@ -77,6 +80,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                 'social_django.context_processors.backends',  # <--
+                'social_django.context_processors.login_redirect', # <--
             ],
         },
     },
@@ -86,6 +91,10 @@ AUTHENTICATION_BACKENDS = (
     
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
+    'social_core.backends.google.GoogleOAuth2',
+     'social_core.backends.github.GithubOAuth2',
+   # 'social_core.backends.google.GoogleAuth',
+
 )
 
 WSGI_APPLICATION = 'Profile.wsgi.application'
@@ -138,8 +147,13 @@ USE_L10N = True
 
 USE_TZ = True
 
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY='661627551888-8c57h1g4i2809e092i0k7bgo2pc4kf15.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET='VHaF3OfxOTJ9YTTsyvOVdC72'
 
 
+
+SOCIAL_AUTH_GITHUB_KEY='b60e2fd705a91214c3b7'
+SOCIAL_AUTH_GITHUB_SECRET='    6a99d51651d7651153de2a2819ee98a57b7b9bec'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
@@ -156,3 +170,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_REDIRECT_URL = '/home'
 
+SOCIALACCOUNT_PROVIDERS = {
+    'github': {
+        'SCOPE': [
+            'user',
+            'repo',
+            'read:org',
+        ],
+    }
+}

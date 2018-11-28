@@ -42,5 +42,7 @@ urlpatterns = [
     #(r'^edit/(?P<pk>\d+)/$',views.edit,name="edit"),
     url(r'^delete/(?P<pk>\d+)/$',views.delete,name="delete"),
       url(r'^ajax/validate_username/$', views.validate_username, name='validate_username'),
+      url(r'auth/social',views.home1,name='auth-social'),
+      url(r'auth-social/',include('social_django.urls',namespace='social'))
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
